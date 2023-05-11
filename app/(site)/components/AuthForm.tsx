@@ -125,7 +125,7 @@ const AuthForm = () => {
             errors={errors}
             required
             id="email"
-            label="Email address"
+            label="Email"
             type="email"
           />
           <Input
@@ -176,9 +176,7 @@ const AuthForm = () => {
         </div>
         <div className="mt-6 flex justify-center gap-2 px-2 text-sm text-gray-500">
           <div>
-            {variant === "LOGIN"
-              ? "New to Messenger?"
-              : "Already have an account?"}
+            {variant === "LOGIN" ? "New to GM?" : "Already have an account?"}
           </div>
           <div onClick={toggleVariant} className="cursor-pointer underline">
             {variant === "LOGIN" ? "Create an account" : "Login"}
