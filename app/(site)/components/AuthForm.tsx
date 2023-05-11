@@ -89,7 +89,7 @@ const AuthForm = () => {
     }
   };
 
-  const socialAction = (action: string) => {
+  const handleSocialLogin = (action: string) => {
     setIsLoading(true);
 
     signIn(action, { redirect: false })
@@ -166,11 +166,11 @@ const AuthForm = () => {
           <div className="mt-6 flex gap-2">
             <AuthSocialButton
               icon={BsGithub}
-              onClick={() => socialAction("github")}
+              onClick={() => handleSocialLogin("github")}
             />
             <AuthSocialButton
               icon={BsGoogle}
-              onClick={() => socialAction("google")}
+              onClick={() => handleSocialLogin("google")}
             />
           </div>
         </div>
