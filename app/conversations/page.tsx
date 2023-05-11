@@ -1,6 +1,5 @@
 "use client";
 
-import useRoutes from "@/hooks/useRoutes";
 import { signOut } from "next-auth/react";
 
 const Conversations = () => {
