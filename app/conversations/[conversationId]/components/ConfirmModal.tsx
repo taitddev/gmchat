@@ -8,7 +8,7 @@ import { FiAlertTriangle } from "react-icons/fi";
 import { toast } from "react-hot-toast";
 
 import useConversation from "@/hooks/useConversation";
-import Modal from "@/app/components/Modal";
+import Modal from "@/app/components/modals/Modal";
 import Button from "@/app/components/Button";
 
 interface IConfirmModalProps {

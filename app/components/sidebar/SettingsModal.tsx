@@ -9,7 +9,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { CldUploadButton } from "next-cloudinary";
 
-import Modal from "../Modal";
+import Modal from "../modals/Modal";
 import Input from "../inputs/Input";
 import Button from "../Button";
 
