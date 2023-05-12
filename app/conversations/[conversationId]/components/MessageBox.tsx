@@ -18,6 +18,11 @@ const MessageBox: FC<IMessageBoxProps> = ({ message, isLast }) => {
 
   const isOwn = session.data?.user?.email === message?.sender?.email;
 
+  const seenList = (message.seen || [])
+    .filter((user) => user.email !== message?.sender?.email)
+    .map((user) => user.name)
+    .join(", ");
+
   return (
     <div className={clsx("flex gap-3 p-4", isOwn && "justify-end")}>
       <div className={clsx(isOwn && "order-2")}>
@@ -52,6 +57,18 @@ const MessageBox: FC<IMessageBoxProps> = ({ message, isLast }) => {
             <div>{message.body}</div>
           )}
         </div>
+
+        {isLast && isOwn && seenList.length > 0 && (
+          <div
+            className="
+            text-xs 
+            font-light 
+            text-gray-500
+            "
+          >
+            {`Seen by ${seenList}`}
+          </div>
+        )}
       </div>
     </div>
   );
