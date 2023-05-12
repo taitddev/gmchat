@@ -4,6 +4,7 @@ import axios from "axios";
 
 import { User } from "@prisma/client";
 import Avatar from "@/app/components/Avatar";
+import LoadingModal from "@/app/components/modals/LoadingModal";
 
 interface IUserBoxProps {
   user: User;
@@ -26,6 +27,7 @@ const UserBox: React.FC<IUserBoxProps> = ({ user }) => {
 
   return (
     <>
+      {isLoading && <LoadingModal />}
       <div
         onClick={handleClick}
         className="relative flex w-full cursor-pointer items-center space-x-3 rounded-lg bg-white p-3 transition hover:bg-neutral-100"
