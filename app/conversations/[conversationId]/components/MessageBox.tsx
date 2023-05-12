@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import Image from "next/image";
 import { useSession } from "next-auth/react";
 import clsx from "clsx";
 import { format } from "date-fns";
@@ -29,6 +30,27 @@ const MessageBox: FC<IMessageBoxProps> = ({ message, isLast }) => {
           <div className="text-xs text-gray-400">
             {format(new Date(message.createdAt), "p")}
           </div>
+        </div>
+
+        <div
+          className={clsx(
+            "w-fit overflow-hidden text-sm",
+            isOwn ? "bg-sky-500 text-white" : "bg-gray-100",
+            message.image ? "rounded-md p-0" : "rounded-full px-3 py-2"
+          )}
+        >
+          {message.image ? (
+            <Image
+              alt="Image"
+              height="288"
+              width="288"
+              onClick={() => setImageModalOpen(true)}
+              src={message.image}
+              className="translate cursor-pointer object-cover transition hover:scale-110"
+            />
+          ) : (
+            <div>{message.body}</div>
+          )}
         </div>
       </div>
     </div>
