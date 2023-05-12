@@ -40,7 +40,7 @@ const MessageBox: FC<IMessageBoxProps> = ({ message, isLast }) => {
         <div
           className={clsx(
             "w-fit overflow-hidden text-sm",
-            isOwn ? "bg-sky-500 text-white" : "bg-gray-100",
+            isOwn ? "bg-bluePrimary text-white" : "bg-gray-100",
             message.image ? "rounded-md p-0" : "rounded-full px-3 py-2"
           )}
         >
