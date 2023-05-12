@@ -7,6 +7,7 @@ import { IoClose, IoTrash } from "react-icons/io5";
 import { format } from "date-fns";
 import useOtherUser from "@/hooks/useOtherUser";
 import Avatar from "@/app/components/Avatar";
+import Modal from "@/app/components/Modal";
 
 interface IProfileDrawerProps {
   isOpen: boolean;
@@ -36,6 +37,9 @@ const ProfileDrawer: FC<IProfileDrawerProps> = ({ isOpen, onClose, data }) => {
 
   return (
     <>
+      <Modal isOpen onClose={() => {}}>
+        Test
+      </Modal>
       <Transition.Root show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={onClose}>
           <Transition.Child
