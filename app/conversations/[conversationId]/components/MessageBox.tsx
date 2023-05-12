@@ -6,6 +6,7 @@ import { format } from "date-fns";
 
 import { FullMessageType } from "@/app/types";
 import Avatar from "@/app/components/Avatar";
+import ImageModal from "./ImageModal";
 
 interface IMessageBoxProps {
   message: FullMessageType;
@@ -44,6 +45,11 @@ const MessageBox: FC<IMessageBoxProps> = ({ message, isLast }) => {
             message.image ? "rounded-md p-0" : "rounded-full px-3 py-2"
           )}
         >
+          <ImageModal
+            src={message.image}
+            isOpen={imageModalOpen}
+            onClose={() => setImageModalOpen(false)}
+          />
           {message.image ? (
             <Image
               alt="Image"
