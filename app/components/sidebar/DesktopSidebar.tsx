@@ -5,6 +5,7 @@ import { User } from "@prisma/client";
 import useRoutes from "@/hooks/useRoutes";
 import DesktopItem from "./DesktopItem";
 import Avatar from "../Avatar";
+import SettingsModal from "./SettingsModal";
 
 interface IDesktopSidebarProps {
   currentUser: User;
@@ -16,6 +17,11 @@ const DesktopSidebar: FC<IDesktopSidebarProps> = ({ currentUser }) => {
 
   return (
     <>
+      <SettingsModal
+        currentUser={currentUser}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
       <div className="lg:pb-4xl:px-6 hidden justify-between lg:fixed lg:inset-y-0 lg:left-0 lg:z-40 lg:flex lg:w-20 lg:flex-col lg:overflow-y-auto lg:border-r-[1px] lg:bg-white">
         <nav className="mt-4 flex flex-col justify-between">
           <ul role="list" className="flex flex-col items-center space-y-1">
