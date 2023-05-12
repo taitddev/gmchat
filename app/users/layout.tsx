@@ -6,6 +6,7 @@ export default async function UsersLayout({
   children: React.ReactNode;
 }) {
   return (
+    // @ts-expect-error Server Component
     <Sidebar>
       <div className="h-full">{children}</div>;
     </Sidebar>
