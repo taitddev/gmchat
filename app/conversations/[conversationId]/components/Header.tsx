@@ -9,6 +9,7 @@ import { HiEllipsisHorizontal } from "react-icons/hi2";
 import useOtherUser from "@/hooks/useOtherUser";
 import Avatar from "@/app/components/Avatar";
 import ProfileDrawer from "./ProfileDrawer";
+import AvatarGroup from "@/app/components/AvatarGroup";
 
 interface IHeaderProps {
   conversation: Conversation & {
@@ -39,19 +40,16 @@ const Header: FC<IHeaderProps> = ({ conversation }) => {
         <div className="flex items-center gap-3">
           <Link
             href="/conversations"
-            className="
-            block 
-            cursor-pointer 
-            text-sky-500 
-            transition 
-            hover:text-sky-600 
-            lg:hidden
-          "
+            className="block cursor-pointer text-sky-500 transition hover:text-sky-600 lg:hidden"
           >
             <HiChevronLeft size={32} />
           </Link>
 
-          <Avatar user={otherUser} />
+          {conversation.isGroup ? (
+            <AvatarGroup users={conversation.users} />
+          ) : (
+            <Avatar user={otherUser} />
+          )}
 
           <div className="flex flex-col">
             <div>{conversation.name || otherUser.name}</div>
