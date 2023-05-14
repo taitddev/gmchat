@@ -6,6 +6,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { IoClose, IoTrash, IoMailOutline } from "react-icons/io5";
 import { format } from "date-fns";
 import useOtherUser from "@/hooks/useOtherUser";
+import useActiveList from "@/hooks/useActiveList";
 import Avatar from "@/app/components/Avatar";
 import ConfirmModal from "./ConfirmModal";
 import AvatarGroup from "@/app/components/AvatarGroup";
@@ -30,11 +31,16 @@ const ProfileDrawer: FC<IProfileDrawerProps> = ({ isOpen, onClose, data }) => {
     return data.name || otherUser.name;
   }, [data.name, otherUser.name]);
 
+  const { members } = useActiveList();
+  const isActive = members.indexOf(otherUser?.email!) !== -1;
+
   const statusText = useMemo(() => {
     if (data.isGroup) {
       return `${data.users.length} members`;
     }
-  }, [data]);
+
+    return isActive ? "Active" : "Offline";
+  }, [data, isActive]);
 
   return (
     <>
