@@ -25,6 +25,7 @@ interface IConversationListProps {
 const ConversationList: FC<IConversationListProps> = ({
   initialItems,
   users,
+  title,
 }) => {
   const [items, setItems] = useState(initialItems);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -90,25 +91,17 @@ const ConversationList: FC<IConversationListProps> = ({
       />
       <aside
         className={clsx(
-          `fixed inset-y-0 overflow-y-auto border-r border-gray-200 pb-20 lg:left-20 lg:block lg:w-80 lg:px-5 lg:py-6 lg:pb-0`,
+          `fixed inset-y-0 overflow-y-auto border-r border-gray-200 p-6 pb-20 lg:left-20 lg:block lg:w-80 lg:px-5 lg:py-6 lg:pb-0`,
           isOpen ? "hidden" : "left-0 block w-full"
         )}
       >
         <div className="mb-4 flex justify-between">
-          <div className="text-xl font-bold text-neutral-800">Messages</div>
+          <div className="text-xl font-bold text-neutral-800">{title}</div>
           <div
             onClick={() => setIsModalOpen(true)}
-            className="
-                cursor-pointer 
-                rounded-full 
-                bg-gray-100 
-                p-2 
-                text-bluePrimary 
-                transition 
-                hover:opacity-75
-              "
+            className="cursor-pointer rounded-lg bg-bluePrimary p-2 text-white transition hover:opacity-75"
           >
-            <MdOutlineGroupAdd size={20} />
+            <MdOutlineGroupAdd size={18} />
           </div>
         </div>
 

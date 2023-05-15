@@ -2,7 +2,8 @@ import { useMemo } from "react";
 import { usePathname } from "next/navigation";
 import { HiChat } from "react-icons/hi";
 import { HiUsers } from "react-icons/hi2";
-import { IoLogOut, IoArchive } from "react-icons/io5";
+import { IoLogOut } from "react-icons/io5";
+import { RiInboxArchiveFill } from "react-icons/ri";
 import { signOut } from "next-auth/react";
 import useConversation from "./useConversation";
 
@@ -27,7 +28,7 @@ const useRoutes = () => {
       {
         label: "Archived",
         href: "/archived",
-        icon: IoArchive,
+        icon: RiInboxArchiveFill,
         active: pathname === "/archived",
       },
       {
