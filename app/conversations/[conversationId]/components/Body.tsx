@@ -73,7 +73,7 @@ const Body: FC<IBodyProps> = ({ initialMessages }) => {
           isLast={index === messages.length - 1}
         />
       ))}
-      <div className="pt-24" ref={bottomRef} />
+      <div className="mt-6" ref={bottomRef} />
     </div>
   );
 };
