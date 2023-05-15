@@ -16,7 +16,6 @@ interface IBodyProps {
 const Body: FC<IBodyProps> = ({ initialMessages }) => {
   const bottomRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState(initialMessages);
-  console.log("file: Body.tsx:19 ~ messages:", messages);
 
   const { conversationId } = useConversation();
 
@@ -74,6 +73,7 @@ const Body: FC<IBodyProps> = ({ initialMessages }) => {
           isLast={index === messages.length - 1}
         />
       ))}
+      <div className="pt-24" ref={bottomRef} />
     </div>
   );
 };
