@@ -27,20 +27,8 @@ const DesktopItem: React.FC<DesktopItemProps> = ({
       <Link
         href={href}
         className={clsx(
-          `
-            group 
-            flex 
-            gap-x-3 
-            rounded-md 
-            p-3 
-            text-sm 
-            font-semibold 
-            leading-6 
-            text-bluePrimary 
-            hover:bg-gray-100 
-            hover:text-blueDarker
-          `,
-          active && "bg-gray-100 text-black"
+          `group flex gap-x-3 rounded-lg p-2 text-sm font-semibold leading-6 text-bluePrimary`,
+          active && "bg-bluePrimary text-white"
         )}
       >
         <Icon className="h-6 w-6 shrink-0" aria-hidden="true" />

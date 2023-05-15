@@ -25,7 +25,7 @@ const DesktopSidebar: FC<IDesktopSidebarProps> = ({ currentUser }) => {
       />
       <div className="hidden justify-between p-4 py-3 lg:fixed lg:inset-y-0 lg:left-0 lg:z-40 lg:flex lg:w-20 lg:flex-col lg:overflow-y-auto lg:border-r-[1px] lg:bg-white">
         <nav className="mt-4 flex flex-col justify-between">
-          <ul role="list" className="flex flex-col items-center space-y-1">
+          <ul role="list" className="flex flex-col items-center space-y-3">
             <Image
               height={32}
               width={32}
