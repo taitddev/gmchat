@@ -39,7 +39,7 @@ const ProfileDrawer: FC<IProfileDrawerProps> = ({ isOpen, onClose, data }) => {
       return `${data.users.length} members`;
     }
 
-    return isActive ? "Active" : "Offline";
+    return isActive ? "Đang hoạt động" : "";
   }, [data, isActive]);
 
   return (

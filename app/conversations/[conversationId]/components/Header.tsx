@@ -30,7 +30,7 @@ const Header: FC<IHeaderProps> = ({ conversation }) => {
       return `${conversation.users.length} members`;
     }
 
-    return isActive ? "Active" : "Offline";
+    return isActive ? "Đang hoạt động" : "";
   }, [conversation, isActive]);
 
   return (

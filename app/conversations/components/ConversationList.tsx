@@ -90,16 +90,15 @@ const ConversationList: FC<IConversationListProps> = ({
       />
       <aside
         className={clsx(
-          `fixed inset-y-0 overflow-y-auto border-r border-gray-200 pb-20 lg:left-20 lg:block lg:w-80 lg:pb-0`,
+          `fixed inset-y-0 overflow-y-auto border-r border-gray-200 pb-20 lg:left-20 lg:block lg:w-80 lg:px-5 lg:py-6 lg:pb-0`,
           isOpen ? "hidden" : "left-0 block w-full"
         )}
       >
-        <div className="px-5">
-          <div className="mb-4 flex justify-between pt-4">
-            <div className="text-xl font-bold text-neutral-800">Messages</div>
-            <div
-              onClick={() => setIsModalOpen(true)}
-              className="
+        <div className="mb-4 flex justify-between">
+          <div className="text-xl font-bold text-neutral-800">Messages</div>
+          <div
+            onClick={() => setIsModalOpen(true)}
+            className="
                 cursor-pointer 
                 rounded-full 
                 bg-gray-100 
@@ -108,19 +107,18 @@ const ConversationList: FC<IConversationListProps> = ({
                 transition 
                 hover:opacity-75
               "
-            >
-              <MdOutlineGroupAdd size={20} />
-            </div>
+          >
+            <MdOutlineGroupAdd size={20} />
           </div>
-
-          {items.map((item) => (
-            <ConversationBox
-              key={item.id}
-              data={item}
-              selected={conversationId === item.id}
-            />
-          ))}
         </div>
+
+        {items.map((item) => (
+          <ConversationBox
+            key={item.id}
+            data={item}
+            selected={conversationId === item.id}
+          />
+        ))}
       </aside>
     </>
   );
