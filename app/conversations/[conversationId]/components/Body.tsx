@@ -16,6 +16,7 @@ interface IBodyProps {
 const Body: FC<IBodyProps> = ({ initialMessages }) => {
   const bottomRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState(initialMessages);
+  console.log("file: Body.tsx:19 ~ messages:", messages);
 
   const { conversationId } = useConversation();
 
@@ -64,12 +65,13 @@ const Body: FC<IBodyProps> = ({ initialMessages }) => {
   }, [conversationId]);
 
   return (
-    <div className="flex-1 overflow-y-auto">
+    <div className="flex-1 overflow-y-auto p-4">
       {messages.map((message, index) => (
         <MessageBox
           key={message.id}
-          isLast={index === messages.length - 1}
           message={message}
+          prevMessage={messages[index - 1]}
+          isLast={index === messages.length - 1}
         />
       ))}
     </div>
