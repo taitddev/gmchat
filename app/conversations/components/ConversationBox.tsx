@@ -20,6 +20,14 @@ const ConversationBox: FC<IConversationBoxProps> = ({ data, selected }) => {
   const session = useSession();
   const router = useRouter();
 
+  const isOwn = () => {
+    const messages = data?.messages;
+    return (
+      session.data?.user?.email ===
+      messages?.[messages?.length - 1]?.sender?.email
+    );
+  };
+
   const handleClick = useCallback(() => {
     router.push(`/conversations/${data.id}`);
   }, [data, router]);
@@ -65,7 +73,7 @@ const ConversationBox: FC<IConversationBoxProps> = ({ data, selected }) => {
     <div
       onClick={handleClick}
       className={clsx(
-        `relative flex w-full cursor-pointer items-center space-x-3 rounded-lg py-3 transition hover:bg-neutral-100`,
+        `relative flex w-full cursor-pointer items-center space-x-3 rounded-lg px-2 py-3 transition hover:bg-neutral-100`,
         selected ? "bg-neutral-100" : "bg-white"
       )}
     >
@@ -95,6 +103,7 @@ const ConversationBox: FC<IConversationBoxProps> = ({ data, selected }) => {
               hasSeen ? "text-gray-500" : "font-medium text-black"
             )}
           >
+            {isOwn() ? "Bạn: " : ""}
             {lastMessageText}
           </p>
         </div>
